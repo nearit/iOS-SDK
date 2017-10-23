@@ -1,0 +1,28 @@
+framework module NearITSDK {
+    umbrella header "NearITSDK.h"
+    
+    export *
+    module * { export * }
+    
+    explicit module Private {
+        header "NITManager.h"
+        header "NITSimpleNotification.h"
+        header "NITContent.h"
+        header "NITImage.h"
+        header "NITResource.h"
+        header "NITRecipe.h"
+        header "NITCoupon.h"
+        header "NITClaim.h"
+        header "NITFeedback.h"
+        header "NITFeedbackEvent.h"
+        header "NITCustomJSON.h"
+        header "NITEvent.h"
+        header "NITAudio.h"
+        header "NITUpload.h"
+        header "NITLogger.h"
+        header "NITLog.h"
+        header "NITTrackingInfo.h"
+        header "NITReactionBundle.h"
+        header "NITContentLink.h"
+    }
+}

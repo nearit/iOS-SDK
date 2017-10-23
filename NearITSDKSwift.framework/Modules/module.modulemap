@@ -1,0 +1,11 @@
+framework module NearITSDKSwift {
+  umbrella header "NearITSDKSwift.h"
+
+  export *
+  module * { export * }
+}
+
+module NearITSDKSwift.Swift {
+    header "NearITSDKSwift-Swift.h"
+    requires objc
+}
