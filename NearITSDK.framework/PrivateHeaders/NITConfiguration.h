@@ -8,7 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@class NITConfiguration;
+
+@protocol NITConfigurationDelegate<NSObject>
+
+- (void)configurationDidOptOut:(NITConfiguration* _Nonnull)configuration;
+
+@end
+
 @interface NITConfiguration : NSObject
+
+@property (nonatomic, strong) id<NITConfigurationDelegate> _Nullable delegate;
 
 + (NITConfiguration* _Nonnull)defaultConfiguration;
 - (instancetype _Nonnull)initWithUserDefaults:(NSUserDefaults* _Nonnull)userDefaults;
@@ -24,6 +34,8 @@
 - (void)setInstallationId:(NSString* _Nullable)installationId;
 - (NSString * _Nullable)deviceToken;
 - (void)setDeviceToken:(NSString * _Nonnull)deviceToken;
+- (BOOL)isOptOut;
+- (void)setOptOut:(BOOL)optOut;
 - (void)clear;
 
 @end

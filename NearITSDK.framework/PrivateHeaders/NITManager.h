@@ -63,5 +63,6 @@
 - (NSString* _Nullable)profileId DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use profileIdWithCompletionHandler");
 - (void)profileIdWithCompletionHandler:(void (^_Nonnull)(NSString* _Nullable profileId, NSError* _Nullable error))handler;
 - (void)setProfileId:(NSString * _Nonnull)profileId;
+- (void)optOutWithCompletionHandler:(void (^_Nonnull)(BOOL success))handler;
 
 @end

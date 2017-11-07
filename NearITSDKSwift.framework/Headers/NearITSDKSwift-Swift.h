@@ -219,6 +219,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NearManager 
 - (void)setProfileWithId:(NSString * _Nonnull)id SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.setProfile(id:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)recipes:(void (^ _Nullable)(NSArray<NITRecipe *> * _Nullable, NSError * _Nullable))completionHandler SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.recipes(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)processRecipeWithId:(NSString * _Nonnull)id SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.processRecipe(id:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)optOut:(void (^ _Nonnull)(BOOL))completionHandler SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.optOut(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)manager:(NITManager * _Nonnull)manager eventFailureWithError:(NSError * _Nonnull)error;
 - (void)manager:(NITManager * _Nonnull)manager eventWithContent:(id _Nonnull)content trackingInfo:(NITTrackingInfo * _Nonnull)trackingInfo;
 - (void)manager:(NITManager * _Nonnull)manager alertWantsToShowContent:(id _Nonnull)content;

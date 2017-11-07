@@ -6,7 +6,7 @@
 //  Copyright © 2017 NearIT. All rights reserved.
 //
 
-#import <NearITSDK/NearITSDK.h>
+#import "NITResource.h"
 
 @class NITCoupon;
 
