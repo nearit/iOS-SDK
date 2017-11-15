@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name                  = 'NearITSDKSwift'
-s.version               = '2.4.1'
+s.version               = '2.4.2'
 s.summary               = 'nearit.com iOS SDK'
 s.description           = 'nearit.com iOS SDK for Swift'
 
@@ -18,6 +18,6 @@ s.requires_arc          = true
 s.vendored_frameworks   = 'NearITSDKSwift.framework'
 s.source_files =  'NearITSDKSwift.framework/Headers/*.h'
 
-s.dependency            'NearITSDK', '= 2.4.1'
+s.dependency            'NearITSDK', '= 2.4.2'
 
 end
