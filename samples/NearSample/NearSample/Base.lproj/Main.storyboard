@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="rqd-9O-gXf" kind="relationship" relationship="viewControllers" id="YgM-ED-G88"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="xSa-ox-xIR">
+            <objects>
+                <viewController id="yyI-Bh-oaF" customClass="HomeViewController" customModule="NearSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z2E-JW-RUC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NearIT" translatesAutoresizingMaskIntoConstraints="NO" id="Nml-1b-ywk">
+                                <rect key="frame" x="107" y="20" width="160" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Nml-1b-ywk" secondAttribute="height" multiplier="1:1" id="6bu-k1-U3g"/>
+                                    <constraint firstAttribute="width" constant="160" id="pIX-em-8Ds"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1ey-ut-8kO">
+                                <rect key="frame" x="140.5" y="200" width="94" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0KU-i9-Bcw" customClass="NearButton" customModule="NearSample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="zkq-rh-5NM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="TRY &quot;WHAT&quot;">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tapTryWhat:" destination="yyI-Bh-oaF" eventType="touchDown" id="ivr-VQ-DL7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1ey-ut-8kO" firstAttribute="top" secondItem="Nml-1b-ywk" secondAttribute="bottom" constant="20" id="9ry-n1-R4S"/>
+                            <constraint firstItem="Nml-1b-ywk" firstAttribute="top" secondItem="h9h-yA-eqB" secondAttribute="top" constant="20" id="Bme-W9-FyA"/>
+                            <constraint firstItem="1ey-ut-8kO" firstAttribute="centerX" secondItem="z2E-JW-RUC" secondAttribute="centerX" id="gMN-NJ-Pw1"/>
+                            <constraint firstItem="Nml-1b-ywk" firstAttribute="centerX" secondItem="z2E-JW-RUC" secondAttribute="centerX" id="zH3-qq-KFC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h9h-yA-eqB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gZF-Zx-rmI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CLq-BL-njj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1621.5999999999999" y="-0.44977511244377816"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="QKS-Qh-2c1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rqd-9O-gXf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="near-tab" id="w50-Ge-9OI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="A0P-pB-pld">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.59999999999999998" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yyI-Bh-oaF" kind="relationship" relationship="rootViewController" id="Rtj-ZF-pr2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dWz-eq-8b4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="819.20000000000005" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NearIT" width="700" height="700"/>
+        <image name="near-tab" width="22" height="22"/>
+    </resources>
+</document>
