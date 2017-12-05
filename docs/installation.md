@@ -34,24 +34,30 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     ...
 }
 </div>
-
 You can find the API key on <a href="https://go.nearit.com/" target="_blank">**NearIT web interface**</a>, under the "**Settings> SDK Integration**" section.
-
 <br>
-##Manual Configuration Refresh##
 
-The SDK **initialization is done automatically** and handles the task of syncing the recipes with our servers when your app starts up.
-<br>However, if you need to sync the recipes configuration more often, you can call this method:
+## Auto update
+To keep your app up to date even if a user is not using the app, you have to call the sdk method developed to support the iOS feature called **background fetch**.
+
+First thing to do is to enable the feature **background fetch** in the capabilities section of your app project.
+
+![capabilities](images/backgroundfetch_capabilities.png "")
+
+In your code you only need to call the method *application:performFetchWithCompletionHandler* of the Near manager in your AppDelegate, inside the iOS method *application:performFetchWithCompletionHandler*.
 
 <div class="code-swift">
-manager.refreshConfig(completionHandler: { (error) in
-    ...
-})
+// Call the method application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) on the Near manager instance
+func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    nearManager.application(application) { (fetchResult) in
+        completionHandler(fetchResult)
+    }
+}
 </div>
 <div class="code-objc">
-[manager refreshConfigWithCompletionHandler:^(NSError* error) {
-    ...
-}];
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    [nearManager application:application performFetchWithCompletionHandler:^(UIBackgroundFetchResult result) {
+        completionHandler(result);
+    }];
+}
 </div>
-
-If the refreshConfig has succeeded, 'error' is nil.

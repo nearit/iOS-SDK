@@ -10,6 +10,8 @@
 
 @class NITConfiguration;
 
+extern NSTimeInterval const NITConfigurationDefaultSchedulePeriod;
+
 @protocol NITConfigurationDelegate<NSObject>
 
 - (void)configurationDidOptOut:(NITConfiguration* _Nonnull)configuration;
@@ -36,6 +38,8 @@
 - (void)setDeviceToken:(NSString * _Nonnull)deviceToken;
 - (BOOL)isOptOut;
 - (void)setOptOut:(BOOL)optOut;
+- (NSTimeInterval)schedulePeriod;
+- (void)setSchedulePeriod:(NSTimeInterval)schedulePeriod;
 - (void)clear;
 
 @end
