@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class NITRecipesManager;
 @class NITRecipe;
@@ -46,7 +47,7 @@
 
 - (void)start;
 - (void)stop;
-- (void)refreshConfigWithCompletionHandler:(void (^_Nullable)(NSError * _Nullable error))completionHandler;
+- (void)refreshConfigWithCompletionHandler:(void (^_Nullable)(NSError * _Nullable error))completionHandler DEPRECATED_ATTRIBUTE;
 - (void)setDeviceTokenWithData:(NSData* _Nonnull)token;
 - (BOOL)processRecipeSimpleWithUserInfo:(NSDictionary<NSString*, id> * _Nullable)userInfo;
 - (void)sendTrackingWithTrackingInfo:(NITTrackingInfo * _Nullable)trackingInfo event:(NSString* _Nullable)event;
@@ -64,5 +65,7 @@
 - (void)profileIdWithCompletionHandler:(void (^_Nonnull)(NSString* _Nullable profileId, NSError* _Nullable error))handler;
 - (void)setProfileId:(NSString * _Nonnull)profileId;
 - (void)optOutWithCompletionHandler:(void (^_Nonnull)(BOOL success))handler;
+- (void)processCustomTriggerWithKey:(NSString* _Nonnull)key;
+- (void)application:(UIApplication* _Nonnull)application performFetchWithCompletionHandler:(void (^_Nonnull)(UIBackgroundFetchResult))completionHandler;
 
 @end
