@@ -175,6 +175,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import ObjectiveC;
 @import NearITSDK.Private;
 @import Foundation;
+@import UIKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -191,6 +192,7 @@ SWIFT_MODULE_NAMESPACE_PUSH("NearITSDKSwift")
 @class NITEvent;
 @class NITCoupon;
 @class NITRecipe;
+@class UIApplication;
 @class NITManager;
 
 SWIFT_CLASS("_TtC14NearITSDKSwift11NearManager")
@@ -220,6 +222,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NearManager 
 - (void)recipes:(void (^ _Nullable)(NSArray<NITRecipe *> * _Nullable, NSError * _Nullable))completionHandler SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.recipes(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)processRecipeWithId:(NSString * _Nonnull)id SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.processRecipe(id:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)optOut:(void (^ _Nonnull)(BOOL))completionHandler SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.optOut(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)processCustomTrigger:(NSString * _Nonnull)key SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.processCustomTrigger(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)application:(UIApplication * _Nonnull)application performFetchWithCompletionHandler:(void (^ _Nonnull)(UIBackgroundFetchResult))completionHandler SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.application(_:performFetchWithCompletionHandler:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)manager:(NITManager * _Nonnull)manager eventFailureWithError:(NSError * _Nonnull)error;
 - (void)manager:(NITManager * _Nonnull)manager eventWithContent:(id _Nonnull)content trackingInfo:(NITTrackingInfo * _Nonnull)trackingInfo;
 - (void)manager:(NITManager * _Nonnull)manager alertWantsToShowContent:(id _Nonnull)content;
