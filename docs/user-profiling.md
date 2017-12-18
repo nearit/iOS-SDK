@@ -1,4 +1,4 @@
-# User profiling
+# User profiling & Opt-out
 
 NearIT creates an anonymous profile for every user of your app. You can choose to add data to user profile. This data will be available inside recipes to allow the creation of user targets.
 
@@ -59,7 +59,7 @@ manager.resetProfile { (profileId, error) in
 
 ## Opt-out
 
-You can **opt-out** a profile and its device:
+You can opt-out a profile and its device:
 <div class="code-swift">
 manager.optOut { (success) in
     // ...
@@ -70,4 +70,4 @@ manager.optOut { (success) in
     // ...
 }];
 </div>
-If the opt-out call is successful, the sdk **will cease to work**, it means the opted out device won't receive any notifications at all.
+If the opt-out call is successful all the **user-data** and **trackings** will be deleted and the **SDK will cease to work** (the user's devices will not receive further notifications).

@@ -44,7 +44,7 @@ First thing to do is to enable the feature **background fetch** in the capabilit
 
 ![capabilities](images/backgroundfetch_capabilities.png "")
 
-In your code you only need to call the method *application:performFetchWithCompletionHandler* of the Near manager in your AppDelegate, inside the iOS method *application:performFetchWithCompletionHandler*.
+In your code you need to call the method *application:performFetchWithCompletionHandler* of the Near manager in your AppDelegate, inside the iOS method *application:performFetchWithCompletionHandler*.
 
 <div class="code-swift">
 // Call the method application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) on the Near manager instance
@@ -59,5 +59,22 @@ func application(_ application: UIApplication, performFetchWithCompletionHandler
     [nearManager application:application performFetchWithCompletionHandler:^(UIBackgroundFetchResult result) {
         completionHandler(result);
     }];
+}
+</div>
+
+Then in the `application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool` method of your AppDelegate class, set the minimun background fetch interval (2 hours is recommended):
+
+<div class="code-swift">
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    ...
+    application.setMinimumBackgroundFetchInterval(7200) // 2 hours
+    ...
+}
+</div>
+<div class="code-objc">
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    ...
+    [application setMinimumBackgroundFetchInterval:7200]; // 2 hours
+    ...
 }
 </div>
