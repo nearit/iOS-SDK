@@ -3,8 +3,7 @@
 If you followed the instruction inside [Notification Setup](setup-notifications.md) closely, every tap on notification should be leading to a "**handleNearContent**" method.<br>
 You should implement your handleNearContent method, inside it, you would typically check the content type and handle presentation.
 
-<br>In the next chapter you will find a reference for any NearIT content.
-
+In the next chapter you will find a reference for any NearIT content.
 
 ## Recipe and content objects
 
@@ -83,3 +82,15 @@ manager?.coupons({ (coupons, error) in
 
 
 The method will also return already redeemed coupons so you get to decide to filter them if necessary.
+
+## Content Delegate
+You can extract the right content for you though an object that implement the  `NITContentDelegate` protocol.<br/>
+When you have a **content** and its **trackingInfo** (e.g. in the didReceive method) you can call the `parseContent` method and pass the reference to your content delegate.
+<div class="code-swift">
+manager.parseContent(content, trackingInfo: trackingInfo, contentDelegate: contentDelegate)
+</div>
+<div class="code-objc">
+[manager couponsWithCompletionHandler:^(NSArray<NITCoupon *> *coupons, NSError *error) {
+//Put your code here
+}];
+</div>
