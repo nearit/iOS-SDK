@@ -10,7 +10,7 @@ pages:
         - 'Location Based Notifications' : 'location-based-notifications.md'
         - 'Push Notifications' : 'push-notifications.md'
         - 'In-app Content' : 'handle-content.md'
-        - 'User Profiling' : 'user-profiling.md'
+        - 'User Profiling & Opt-out' : 'user-profiling.md'
     - 'Other resources' :
         - 'Customize Notifications' : 'customize-notifications.md'
         - 'Testing' : 'testing.md'
