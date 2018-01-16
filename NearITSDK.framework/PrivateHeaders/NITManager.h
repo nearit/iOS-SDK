@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "NITContentDelegate.h"
 
 @class NITRecipesManager;
 @class NITRecipe;
@@ -44,6 +45,7 @@
 
 + (void)setupWithApiKey:(NSString* _Nonnull)apiKey;
 + (NITManager* _Nonnull)defaultManager;
++ (void)setFrameworkName:(NSString* _Nonnull)frameworkName;
 
 - (void)start;
 - (void)stop;
@@ -67,5 +69,6 @@
 - (void)optOutWithCompletionHandler:(void (^_Nonnull)(BOOL success))handler;
 - (void)processCustomTriggerWithKey:(NSString* _Nonnull)key;
 - (void)application:(UIApplication* _Nonnull)application performFetchWithCompletionHandler:(void (^_Nonnull)(UIBackgroundFetchResult))completionHandler;
+- (void)parseContent:(id _Nonnull)content trackingInfo:(NITTrackingInfo* _Nonnull)trackingInfo contentDelegate:(id<NITContentDelegate> _Nonnull)contentDelegate;
 
 @end

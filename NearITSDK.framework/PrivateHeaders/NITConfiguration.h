@@ -38,6 +38,8 @@ extern NSTimeInterval const NITConfigurationDefaultSchedulePeriod;
 - (void)setDeviceToken:(NSString * _Nonnull)deviceToken;
 - (BOOL)isOptOut;
 - (void)setOptOut:(BOOL)optOut;
+- (BOOL)isProfileExplicit;
+- (void)setProfileExplicit:(BOOL)profileExplicit;
 - (NSTimeInterval)schedulePeriod;
 - (void)setSchedulePeriod:(NSTimeInterval)schedulePeriod;
 - (void)clear;

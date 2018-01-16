@@ -1,8 +1,8 @@
 PODS:
   - Hex (6.0.0)
-  - NearITSDK (2.4.1)
-  - NearITSDKSwift (2.4.1):
-    - NearITSDK (= 2.4.1)
+  - NearITSDK (2.5.0)
+  - NearITSDKSwift (2.5.0):
+    - NearITSDK (= 2.5.0)
   - NearUIBinding (1.0.0):
     - NearITSDK (~> 2.4)
 
@@ -13,8 +13,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Hex: 3888e06c29fe725b12e33d434e31b06beb4112db
-  NearITSDK: eea302b0b582ca92605b474c5b33dccf82b49d26
-  NearITSDKSwift: 2565853522a35a3355dfb3ab2fbe28358ae89ce9
+  NearITSDK: dbf153623cc5ef29f0e64d5e79d41bf48b80a169
+  NearITSDKSwift: 36c656bf217743955b7c472af14047f5cdafc573
   NearUIBinding: 8f928ee83607dd827aa0dbf6a453f5af7c4f8e2e
 
 PODFILE CHECKSUM: a482ea61a9d4f309134e51edca5a3abed3dead30
