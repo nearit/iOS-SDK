@@ -24,5 +24,6 @@ framework module NearITSDK {
         header "NITTrackingInfo.h"
         header "NITReactionBundle.h"
         header "NITContentLink.h"
+        header "NITContentDelegate.h"
     }
 }
