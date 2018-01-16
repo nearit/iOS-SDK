@@ -8,9 +8,12 @@
 
 #import "NITReactionBundle.h"
 
+@class NITTrackingInfo;
+
 @interface NITFeedback : NITReactionBundle<NSCoding>
 
 @property (nonatomic, strong) NSString* _Nonnull question;
-@property (nonatomic, strong) NSString* _Nonnull recipeId;
+@property (nonatomic, strong) NSString* _Nonnull recipeId DEPRECATED_ATTRIBUTE;
+@property (nonatomic, strong) NITTrackingInfo* _Nonnull trackingInfo;
 
 @end

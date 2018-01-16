@@ -193,6 +193,7 @@ SWIFT_MODULE_NAMESPACE_PUSH("NearITSDKSwift")
 @class NITCoupon;
 @class NITRecipe;
 @class UIApplication;
+@protocol NITContentDelegate;
 @class NITManager;
 
 SWIFT_CLASS("_TtC14NearITSDKSwift11NearManager")
@@ -224,6 +225,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NearManager 
 - (void)optOut:(void (^ _Nonnull)(BOOL))completionHandler SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.optOut(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)processCustomTrigger:(NSString * _Nonnull)key SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.processCustomTrigger(_:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)application:(UIApplication * _Nonnull)application performFetchWithCompletionHandler:(void (^ _Nonnull)(UIBackgroundFetchResult))completionHandler SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.application(_:performFetchWithCompletionHandler:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+- (void)parseContent:(id _Nonnull)content trackingInfo:(NITTrackingInfo * _Nonnull)trackingInfo contentDelegate:(id <NITContentDelegate> _Nonnull)contentDelegate SWIFT_DEPRECATED_OBJC("Swift method 'NearManager.parseContent(_:trackingInfo:contentDelegate:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (void)manager:(NITManager * _Nonnull)manager eventFailureWithError:(NSError * _Nonnull)error;
 - (void)manager:(NITManager * _Nonnull)manager eventWithContent:(id _Nonnull)content trackingInfo:(NITTrackingInfo * _Nonnull)trackingInfo;
 - (void)manager:(NITManager * _Nonnull)manager alertWantsToShowContent:(id _Nonnull)content;
