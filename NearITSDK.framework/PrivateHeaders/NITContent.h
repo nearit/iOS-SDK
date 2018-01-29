@@ -24,5 +24,6 @@
 @property (nonatomic, strong) NSString* _Nullable content;
 @property (nonatomic, readonly) NITImage* _Nullable image;
 @property (nonatomic, readonly) NITContentLink* _Nullable link;
+@property (nonatomic, strong) NSDictionary<NSString*, id> * _Nonnull internalLink;
 
 @end
