@@ -31,3 +31,5 @@ extern NSErrorDomain const NITTrackSenderErrorDomain;
 extern NSString* const ISO8601DateFormatMilliseconds;
 
 extern NSString* const NITHttpStatusCode;
+
+extern NSString* const NITNotTrack; // String to put in the recipeId field for deny a recipe tracking

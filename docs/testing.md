@@ -1,5 +1,4 @@
 # Testing
-
 ## Manual recipe trigger
 
 To help with testing, you can manually trigger a recipe.
