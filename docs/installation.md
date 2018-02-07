@@ -85,3 +85,15 @@ Test Devices allow you to test NearIT features on single devices and is extremel
 Navigate **"Settings > Test devices"** section of NearIT and follow the instructions to enable this feature.
 
 In the same section, you can send invite links to mail addresses. If users have the app installed, they can click the link on their smart-phone to be prompted with a request to enroll their device among the testers.
+
+After the `Info.plist` update, you should override the AppDelegate method for url management:
+<div class="code-swift">
+func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    return NearManager.shared.application(app, open: url, options: options)
+}
+</div>
+<div class="code-objc">
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    [[NITManager defaultManager] application:app openURL:url options:options];
+}
+</div>
