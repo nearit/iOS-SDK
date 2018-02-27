@@ -11,6 +11,8 @@
 
 @interface NITJSONAPI : NSObject<NSCoding>
 
+@property (nonatomic) BOOL forceArrayOfResources;
+
 - (instancetype _Nonnull)init;
 - (instancetype _Nullable)initWithContentsOfFile:(NSString* _Nonnull)path error:(NSError* _Nullable * _Nullable)anError;
 - (instancetype _Nonnull)initWithDictionary:(NSDictionary* _Nonnull)json;
