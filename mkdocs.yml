@@ -13,5 +13,4 @@ pages:
         - 'User Profiling & Opt-out' : 'user-profiling.md'
     - 'Other resources' :
         - 'Customize Notifications' : 'customize-notifications.md'
-        - 'Testing' : 'testing.md'
         - 'Logging' : 'logging.md'
