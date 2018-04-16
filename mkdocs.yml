@@ -9,6 +9,7 @@ pages:
         - 'Notification Setup' : 'setup-notifications.md'
         - 'Location Based Notifications' : 'location-based-notifications.md'
         - 'Push Notifications' : 'push-notifications.md'
+        - 'In-App Events' : 'in-app-events.md'
         - 'In-app Content' : 'handle-content.md'
         - 'User Profiling & Opt-out' : 'user-profiling.md'
     - 'Other resources' :
