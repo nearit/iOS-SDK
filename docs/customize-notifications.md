@@ -40,7 +40,7 @@ class NearSDKManager<NITManagerDelegate> {
 }
 </div>
 
-**Warning:** please remember to track the "notified" event to NearIT, otherwise some NearIT features might not work.
+**Warning:** please remember to track the "received" event to NearIT, otherwise some NearIT features might not work.
 
 ## Custom text for content notifications (iOS 9)
 
