@@ -154,32 +154,43 @@ extension AppDelegate: NearManagerDelegate {
 ## Trackings
 NearIT allows to track user engagement events on recipes. Any recipe has at least two default events:
 
-  - **Notified**: the user *received* a notification
-  - **Engaged**: the user *tapped* on the notification
+  - **Received**: the user *received* a notification
+  - **Opened**: the user *tapped* on the notification
   
-Usually the SDK tracks those events automatically, but if you write custom code to show notification or content please make sure that at least the "**notified**" event is tracked.
+Usually the SDK tracks those events automatically, but if you write custom code to show notification or content please make sure that at least the "**received**" event is tracked.
 <br>**Warning:** Failing in tracking this event cause some NearIT features to not work.
 
 
 You can track **default or custom events** using the "**sendTracking**" method:
  
 <div class="code-swift">
-// notified - notification received
-manager.sendTracking(trackingInfo, event: NearRecipeTracking.notified.rawValue)
+// received - notification received
+manager.sendTracking(trackingInfo, event: NearRecipeTracking.received.rawValue)
 
-// engaged - notification tapped
-manager.sendTracking(trackingInfo, event: NearRecipeTracking.engaged.rawValue)
+// opened - notification tapped
+manager.sendTracking(trackingInfo, event: NearRecipeTracking.opened.rawValue)
 
 // custom recipe event
 manager.sendTracking(trackingInfo, event: "my awesome custom event")
 </div>
 <div class="code-objc">
-// notified - notified received
-[manager sendTrackingWithTrackingInfo:trackingInfo event:NITRecipeNotified];
+// received - notified received
+[manager sendTrackingWithTrackingInfo:trackingInfo event:NITRecipeReceived];
 
-// engaged - notification tapped
-[manager sendTrackingWithTrackingInfo:trackingInfo event:NITRecipeEngaged];
+// opened - notification tapped
+[manager sendTrackingWithTrackingInfo:trackingInfo event:NITRecipeOpened];
 
 // custom recipe event
 [manager sendTrackingWithTrackingInfo:trackingInfo event:@"my awesome custom event"];
+</div>
+
+### Content CTA conversion trackings
+
+When manually dealing with *CTA* objects from the **Content with attachments** you can add this custom trigger on the recipe to track the click conversions on the link:
+
+<div class="code-swift">
+manager.sendTracking(trackingInfo, event: NearRecipeTracking.ctaTapped.rawValue)
+</div>
+<div class="code-objc">
+[manager sendTrackingWithTrackingInfo:trackingInfo event:NITRecipeCtaTapped];
 </div>

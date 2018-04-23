@@ -8,8 +8,11 @@
 
 #import "NITResource.h"
 
-extern NSString* _Nonnull const NITRecipeNotified;
-extern NSString* _Nonnull const NITRecipeEngaged;
+extern NSString* _Nonnull const NITRecipeNotified DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("You should use 'NITRecipeReceived' constant");
+extern NSString* _Nonnull const NITRecipeReceived;
+extern NSString* _Nonnull const NITRecipeEngaged DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("You should use 'NITRecipeOpened' constant");
+extern NSString* _Nonnull const NITRecipeOpened;
+extern NSString* _Nonnull const NITRecipeCtaTapped;
 
 @class NITPulseBundle;
 
