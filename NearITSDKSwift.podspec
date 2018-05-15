@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name                  = 'NearITSDKSwift'
-s.version               = '2.8.1'
+s.version               = '2.9.0'
 s.summary               = 'nearit.com iOS SDK'
 s.description           = 'nearit.com iOS SDK for Swift'
 
@@ -9,7 +9,8 @@ s.homepage              = 'https://github.com/nearit/iOS-SDK'
 s.license               = 'MIT'
 
 s.author                = {
-'Francesco Leoni' => 'francesco@nearit.com'
+'Francesco Leoni' => 'francesco@nearit.com',
+'Stefano Cattaneo' => 'stefano@nearit.com'
 }
 s.source                = { :git => "https://github.com/nearit/iOS-SDK.git", :tag => s.version.to_s }
 
