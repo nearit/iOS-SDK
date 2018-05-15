@@ -75,7 +75,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate : NearManagerDelegate {
     
     func manager(_ manager: NearManager, eventWithContent content: Any, trackingInfo: NITTrackingInfo) {
-        NearManager.shared.sendTracking(trackingInfo, event: NITRecipeNotified)
+        NearManager.shared.sendTracking(trackingInfo, event:NITRecipeReceived)
         
         handleNearContent(content, trackingInfo: trackingInfo)
     }

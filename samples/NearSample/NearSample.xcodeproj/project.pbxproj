@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13A655F8D72B503AFEB05A1F /* Pods_NearSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E63910354DB4210A2C8FB6 /* Pods_NearSample.framework */; };
 		2694A71A1FB99E160053AD19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694A7191FB99E160053AD19 /* AppDelegate.swift */; };
 		2694A7211FB99E160053AD19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2694A71F1FB99E160053AD19 /* Main.storyboard */; };
 		2694A7231FB99E160053AD19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2694A7221FB99E160053AD19 /* Assets.xcassets */; };
 		2694A7261FB99E160053AD19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2694A7241FB99E160053AD19 /* LaunchScreen.storyboard */; };
 		2694A7301FB9A0BA0053AD19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694A72F1FB9A0BA0053AD19 /* HomeViewController.swift */; };
 		26AC2A7B1FC837C300EC400D /* NearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26AC2A7A1FC837C300EC400D /* NearButton.swift */; };
+		D22070DB88A3A17ECC463FBD /* Pods_NearSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA4F95CB6A07015A8696625 /* Pods_NearSample.framework */; };
+		D778EBEF20A4B0A700B1BF45 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D778EBEE20A4B0A400B1BF45 /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		08EAA1F1641DF25BA992C9C4 /* Pods-NearSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NearSample/Pods-NearSample.debug.xcconfig"; sourceTree = "<group>"; };
+		1CA4F95CB6A07015A8696625 /* Pods_NearSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2694A7161FB99E160053AD19 /* NearSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2694A7191FB99E160053AD19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2694A7201FB99E160053AD19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -27,7 +29,7 @@
 		2694A72F1FB9A0BA0053AD19 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		26AC2A7A1FC837C300EC400D /* NearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearButton.swift; sourceTree = "<group>"; };
 		4DC53B7269F2A9AFFA5B3DD9 /* Pods-NearSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-NearSample/Pods-NearSample.release.xcconfig"; sourceTree = "<group>"; };
-		89E63910354DB4210A2C8FB6 /* Pods_NearSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D778EBEE20A4B0A400B1BF45 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13A655F8D72B503AFEB05A1F /* Pods_NearSample.framework in Frameworks */,
+				D22070DB88A3A17ECC463FBD /* Pods_NearSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +47,7 @@
 		2694A70D1FB99E160053AD19 = {
 			isa = PBXGroup;
 			children = (
+				D778EBEE20A4B0A400B1BF45 /* Podfile */,
 				2694A7181FB99E160053AD19 /* NearSample */,
 				2694A7171FB99E160053AD19 /* Products */,
 				F3FFF6D8003995404CBA7AFD /* Pods */,
@@ -85,7 +88,7 @@
 		7CC9A50CE5C4F7A520AC72DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				89E63910354DB4210A2C8FB6 /* Pods_NearSample.framework */,
+				1CA4F95CB6A07015A8696625 /* Pods_NearSample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -111,7 +114,6 @@
 				2694A7131FB99E160053AD19 /* Frameworks */,
 				2694A7141FB99E160053AD19 /* Resources */,
 				3EE8815084DCD434AF193A6F /* [CP] Embed Pods Frameworks */,
-				7F1518ED8E2BDB27CAC59BA1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -163,6 +165,7 @@
 			files = (
 				2694A7261FB99E160053AD19 /* LaunchScreen.storyboard in Resources */,
 				2694A7231FB99E160053AD19 /* Assets.xcassets in Resources */,
+				D778EBEF20A4B0A700B1BF45 /* Podfile in Resources */,
 				2694A7211FB99E160053AD19 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,24 +195,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearSample/Pods-NearSample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7F1518ED8E2BDB27CAC59BA1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NearSample/Pods-NearSample-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/NearUIBinding/NearUIBinding.bundle,
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NearSample/Pods-NearSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A67C092900C31141DDAE330D /* [CP] Check Pods Manifest.lock */ = {

@@ -59,7 +59,9 @@ class HomeViewController: UIViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        
+      
+        // do not manually create NearIT content in your app, only deal with instances delivered by the library
+        // this is just to showcase UI components
         let simple = NITSimpleNotification()
         simple.message = "Lorem ipsum dolor sit amet"
         
@@ -70,7 +72,9 @@ class HomeViewController: UIViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        
+      
+        // do not manually create NearIT content in your app, only deal with instances delivered by the library
+        // this is just to showcase UI components
         let content = NITContent()
         content.title = "Lorem ipsum"
         content.content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
@@ -82,7 +86,8 @@ class HomeViewController: UIViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        
+        // do not manually create NearIT content in your app, only deal with instances delivered by the library
+        // this is just to showcase UI components
         let feedback = NITFeedback()
         feedback.question = "Lorem ipsum dolor sit amet?"
         
@@ -93,7 +98,9 @@ class HomeViewController: UIViewController {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
-        
+      
+        // do not manually create NearIT content in your app, only deal with instances delivered by the library
+        // this is just to showcase UI components
         let coupon = NITCoupon()
         coupon.couponDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         coupon.value = "10 $"
