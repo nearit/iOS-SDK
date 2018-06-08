@@ -2,7 +2,8 @@
 
 Before you start:
 
-* You must add the `NSLocationAlwaysUsageDescription` or `NSLocationWhenInUseUsageDescription` in the project Info.plist
+* You must add the `NSLocationAlwaysUsageDescription` key or `NSLocationWhenInUseUsageDescription` key in the project Info.plist, explaining why your app uses those permissions.
+* For iOS 10 you must add the `NSBluetoothPeripheralUsageDescription` key, explaining why you use Bluetooth.
 * For iOS 11 you must add the `NSLocationAlwaysAndWhenInUseUsageDescription` in the project Info.plist
 * You will need to get `Always authorization`  from an instance of  `CLLocationManager`
 ___
