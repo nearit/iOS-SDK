@@ -12,6 +12,7 @@ pages:
         - 'In-App Events' : 'in-app-events.md'
         - 'In-app Content' : 'handle-content.md'
         - 'User Profiling & Opt-out' : 'user-profiling.md'
+        - 'Before you release' : 'before-you-release.md'
     - 'Other resources' :
         - 'Customize Notifications' : 'customize-notifications.md'
         - 'Logging' : 'logging.md'
