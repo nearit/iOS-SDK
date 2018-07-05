@@ -65,6 +65,7 @@ DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use setUserDataWithKey(\"MY_KEY\"
 - (void)recipesWithCompletionHandler:(void (^_Nullable)(NSArray<NITRecipe*>* _Nullable recipes, NSError * _Nullable error))completionHandler;
 - (void)processRecipeWithId:(NSString* _Nonnull)recipeId;
 - (BOOL)processRecipeWithUserInfo:(NSDictionary<NSString *,id> * _Nonnull)userInfo completion:(void (^_Nullable)(NITReactionBundle* _Nullable object, NITTrackingInfo * _Nullable trackingInfo, NSError* _Nullable error))completionHandler;
+- (BOOL)processRecipeWithResponse:(UNNotificationResponse*)response completion:(void (^_Nullable)(NITReactionBundle* _Nullable object, NITTrackingInfo * _Nullable trackingInfo, NSError* _Nullable error))completionHandler;
 - (void)resetProfile DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use resetProfileWithCompletionHandler");
 - (void)resetProfileWithCompletionHandler:(void (^_Nonnull)(NSString* _Nullable profileId, NSError* _Nullable error))handler;
 - (NSString* _Nullable)profileId DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use profileIdWithCompletionHandler");

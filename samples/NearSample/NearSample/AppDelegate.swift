@@ -68,10 +68,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        let isNearNotification = NearManager.shared.processRecipe(userInfo) { (content, trackingInfo, error) in
+        let isNearNotification = NearManager.shared.processRecipeFrom(response) { (content, trackingInfo, error) in
             if let content = content, let trackingInfo = trackingInfo {
-                self.handleNearContent(content: content)
+                self.handleNearContent(content, trackingInfo: trackingInfo)
             }
         }
         completionHandler()
