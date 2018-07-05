@@ -81,33 +81,6 @@ manager?.coupons({ (coupons, error) in
 
 The method will also return already redeemed coupons so you get to decide to filter them if necessary.
 
-## Fetch user notification history
-
-You can get the user previous notifications calling the method:
-
-<div class="code-swift">
-NearManager.shared.inbox { (items, error) in
-    if let items = items {
-        // New items available, show them in your UI or use the Inbox UI available in Near UI Bindings
-    }
-}
-</div>
-<div class="code-objc">
-[[NITManager defaultManager] inboxWithCompletion:^(NSArray<NITInboxItem *>* _Nullable items, NSError* _Nullable error) {
-    if (items) {
-        // New items available, show them in your UI or use the Inbox UI available in Near UI Bindings
-    }
-}];
-</div>
-
-You will receive an array of `NITInboxItem`, an object that bundles:
-
-- `reactionBundle` : the NearIT content delivered to the user.
-- `trackingInfo`: the tracking info of the interaction.
-- `read` : a boolean indicating if the content was read. This value is determined by recipe trackings.
-- `timestamp` : a timestamp of the interaction.
-- `date` : a utility variable to show the timestamp with a date object.
-
 ## Content Delegate
 You can extract the right content for you though an object that implement the  `NITContentDelegate` protocol.<br/>
 When you have a **content** and its **trackingInfo** (e.g. in the didReceive method) you can call the `parseContent` method and pass the reference to your content delegate.

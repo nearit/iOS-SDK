@@ -30,8 +30,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        let isNearNotification = NearManager.shared.processRecipe(userInfo) { (content, trackingInfo, error) in
+        let isNearNotification = NearManager.shared.processRecipeFrom(response) { (content, trackingInfo, error) in
             if let content = content, let trackingInfo = trackingInfo {
                 self.handleNearContent(content: content)
             }
@@ -62,8 +61,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
-    NSDictionary *userInfo = response.notification.request.content.userInfo;
-    BOOL isNearNotification = [[NITManager defaultManager] processRecipeWithUserInfo:userInfo completion:^(NITReactionBundle * _Nullable content, NITTrackingInfo * _Nullable trackingInfo, NSError * _Nullable error) {
+    BOOL isNearNotification = [[NITManager defaultManager] processRecipeWithResponse:response completion:^(NITReactionBundle * _Nullable content, NITTrackingInfo * _Nullable trackingInfo, NSError * _Nullable error) {
         if (content) {
             [self handleNearContent:content];
         }
