@@ -1,5 +1,8 @@
 # NearIT iOS SDK
 
+# Warning: this doc is deprecated
+Visit the new documentation at this [link](https://docs.nearit.com/ios/installation/)
+
 NearIT allows to engage app users by sending **context-aware targeted content**.
 
 [![Documentation Status](https://readthedocs.org/projects/nearit-ios/badge/?version=latest)](http://nearit-ios.readthedocs.io/en/latest/?badge=latest)
