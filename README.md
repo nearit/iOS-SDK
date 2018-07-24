@@ -2,7 +2,7 @@
 
 NearIT allows to engage app users by sending **context-aware targeted content**.
 
-[![Documentation Status](https://readthedocs.org/projects/nearit-ios/badge/?version=latest)](http://nearit-ios.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/nearit-ios/badge/?version=latest)](https://docs.nearit.com/ios/installation/)
 
 ## Recipes
 
@@ -21,4 +21,4 @@ Once the settings are configured, **everyone** - even people without technical s
 
 ## Integration guide
 
-For information on how to integrate all NearIT features in your app, follow the [integration guide](http://nearit-ios.readthedocs.io/en/latest/)
+For information on how to integrate all NearIT features in your app, follow the [integration guide](https://docs.nearit.com/ios/installation/)
