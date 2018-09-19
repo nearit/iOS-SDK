@@ -6,7 +6,7 @@ target 'NearSample' do
   use_frameworks!
 
   # Pods for NearSample
-  pod 'NearITSDKSwift'
+  pod 'NearITSDKSwift', '~> 2.9.5'
   pod 'NearUIBinding'
 
 # Utility pod
