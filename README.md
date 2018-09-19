@@ -21,4 +21,4 @@ Once the settings are configured, **everyone** - even people without technical s
 
 ## Integration guide
 
-For information on how to integrate all NearIT features in your app, follow the [integration guide](https://docs.nearit.com/ios/installation/)
+For information on how to integrate all NearIT features in your app, follow the [integration guide](http://nearit-ios.readthedocs.io/en/latest/)
