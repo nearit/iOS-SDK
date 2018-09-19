@@ -16,8 +16,7 @@ s.source                = { :git => "https://github.com/nearit/iOS-SDK.git", :ta
 
 s.ios.deployment_target = '9.0'
 s.requires_arc          = true
-s.vendored_frameworks   = 'NearITSDKSwift.framework'
-s.source_files =  'NearITSDKSwift.framework/Headers/*.h'
+s.source_files          =  'NearITSDKSwift/*.{h,swift}'
 
 s.dependency            'NearITSDK', '= 2.9.5'
 
