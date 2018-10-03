@@ -2,7 +2,7 @@
 
 NearIT allows to engage app users by sending **context-aware targeted content**.
 
-[![Documentation Status](https://img.shields.io/badge/docs-visit-green.svg)](https://docs.nearit.com/ios/installation/)
+[![Documentation Status](https://readthedocs.org/projects/nearit-ios/badge/?version=latest)](https://docs.nearit.com/ios/installation/)
 
 ## Recipes
 
