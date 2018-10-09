@@ -193,8 +193,8 @@ public final class NearManager: NSObject, NITManagerDelegate {
         self.processCustomTrigger(key)
     }
     
-    public func inbox(_ completion: @escaping ([NITInboxItem]?, Error?) -> Void) {
-        manager.inbox { (items, error) in
+    public func notificationHistory(_ completion: @escaping ([NITHistoryItem]?, Error?) -> Void) {
+        manager.history { (items, error) in
             completion(items, error)
         }
     }

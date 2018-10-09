@@ -19,7 +19,7 @@
 @class UILocalNotification;
 @class NITTrackingInfo;
 @class NITReactionBundle;
-@class NITInboxItem;
+@class NITHistoryItem;
 
 @protocol NITManaging <NSObject>
 
@@ -78,6 +78,6 @@ DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use triggerInAppEventWithKey");
 - (void)application:(UIApplication* _Nonnull)application performFetchWithCompletionHandler:(void (^_Nonnull)(UIBackgroundFetchResult))completionHandler;
 - (void)parseContent:(id _Nonnull)content trackingInfo:(NITTrackingInfo* _Nonnull)trackingInfo contentDelegate:(id<NITContentDelegate> _Nonnull)contentDelegate;
 - (BOOL)application:(UIApplication* _Nonnull)application openURL:(NSURL* _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id>* _Nullable)options;
-- (void)inboxWithCompletion:(void(^_Nonnull)(NSArray<NITInboxItem*>* _Nullable items, NSError* _Nullable error))completion;
+- (void)historyWithCompletion:(void(^_Nonnull)(NSArray<NITHistoryItem*>* _Nullable items, NSError* _Nullable error))completion;
 
 @end
