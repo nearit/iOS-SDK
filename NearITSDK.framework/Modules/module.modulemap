@@ -25,8 +25,8 @@ framework module NearITSDK {
         header "NITReactionBundle.h"
         header "NITContentLink.h"
         header "NITContentDelegate.h"
-        header "NITInboxItem.h"
-        header "NITInboxManager.h"
+        header "NITHistoryItem.h"
+        header "NITNotificationHistoryManager.h"
         header "NITNetworkManaging.h"
     }
 }
