@@ -205,7 +205,7 @@ public final class NearManager: NSObject, NITManagerDelegate {
         }
     }
     
-    public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    public func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return manager.application(app, open: url, options: options)
     }
     
