@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "NITContentDelegate.h"
+#import <MessageUI/MessageUI.h>
 
 @class NITRecipesManager;
 @class NITRecipe;
