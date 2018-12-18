@@ -73,6 +73,7 @@ public final class NearManager: NSObject, NITManagerDelegate {
         manager.setDeviceTokenWith(token)
     }
     
+    @available(*, deprecated, message: "use background fetch feature for optimized data refresh")
     public func refreshConfig(completionHandler: ((Error?) -> Void)?) {
         manager.refreshConfig(completionHandler: completionHandler)
     }
@@ -186,11 +187,11 @@ public final class NearManager: NSObject, NITManagerDelegate {
     
     @available(*, deprecated, message: "Use triggerInAppEvent(key)")
     public func processCustomTrigger(_ key: String) {
-        manager.processCustomTrigger(withKey: key)
+        self.triggerInAppEvent(key)
     }
     
     public func triggerInAppEvent(_ key: String) {
-        self.processCustomTrigger(key)
+        manager.triggerInAppEvent(withKey: key)
     }
     
     public func notificationHistory(_ completion: @escaping ([NITHistoryItem]?, Error?) -> Void) {
