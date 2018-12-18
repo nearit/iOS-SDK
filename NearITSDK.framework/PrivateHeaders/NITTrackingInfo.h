@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#define KEY_DELIVERY_ID @"delivery_id"
 
 @interface NITTrackingInfo : NSObject<NSCoding>
 
@@ -19,6 +20,7 @@
 - (NSString* _Nullable)deliveryID;
 
 + (NITTrackingInfo* _Nonnull)trackingInfoFromRecipeId:(NSString* _Nonnull)recipeId;
++ (NITTrackingInfo* _Nonnull)trackingInfoFromRecipeId:(NSString* _Nonnull)recipeId deliveryId:(NSString* _Nullable)deliveryId;
 + (NITTrackingInfo* _Nonnull)trackingInfoFromRecipeId:(NSString* _Nonnull)recipeId extras:(NSDictionary<NSString*, id> *)extras;
 
 @end
