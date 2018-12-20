@@ -22,45 +22,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let apiKey = "your-api-key"
         NearManager.setup(apiKey: apiKey)
-        NearManager.shared.delegate = self
-        NearManager.shared.showForegroundNotification = false
+        
+        // enable NearIT logs
         NITLog.setLogEnabled(true)
         
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().delegate = self
-        } else {
-            // Fallback on earlier versions
-        }
+        // set auto-update fetch interval
+        application.setMinimumBackgroundFetchInterval(7200) // 2 hours
+        
+        // request device token
+        application.registerForRemoteNotifications()
+        
+        UNUserNotificationCenter.current().delegate = self
         
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // setup auto-update
+        NearManager.shared.application(application) { (fetchResult) in
+            completionHandler(fetchResult)
+        }
     }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return NearManager.shared.application(app, open: url, options: options)
     }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        NearManager.shared.setDeviceToken(deviceToken)
     }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    func handleNearContent(_ content: Any, trackingInfo: NITTrackingInfo? = nil) {
+        if let content = content as? NITContent {
+            let contentVC = NITContentViewController(content: content)
+            contentVC.show()
+        } else if let feedback = content as? NITFeedback {
+            let feedbackVC = NITFeedbackViewController(feedback: feedback)
+            feedbackVC.show()
+        } else if let coupon = content as? NITCoupon {
+            let couponVC = NITCouponViewController(coupon: coupon)
+            couponVC.show()
+        } else if let simple = content as? NITSimpleNotification {
+            // there's no content attached to the system notification that was just pressed
+        } else if let customJson = content as? NITCustomJSON {
+            // handle your custom json
+        }
     }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
+    
 }
 
-@available(iOS 10.0, *)
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -74,41 +84,5 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             }
         }
         completionHandler()
-    }
-}
-
-extension AppDelegate : NearManagerDelegate {
-    
-    func manager(_ manager: NearManager, eventWithContent content: Any, trackingInfo: NITTrackingInfo) {
-        NearManager.shared.sendTracking(trackingInfo, event:NITRecipeReceived)
-        
-        handleNearContent(content, trackingInfo: trackingInfo)
-    }
-    
-    func manager(_ manager: NearManager, eventFailureWithError error: Error) {
-        
-    }
-    
-    func manager(_ manager: NearManager, alertWantsToShowContent content: Any) {
-        
-    }
-    
-    func handleNearContent(_ content: Any, trackingInfo: NITTrackingInfo? = nil) {
-        if let simple = content as? NITSimpleNotification {
-            let alert = UIAlertController(title: nil, message: simple.message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
-                alert.dismiss(animated: true, completion: nil)
-            }))
-            window?.rootViewController?.present(alert, animated: true, completion: nil)
-        } else if let content = content as? NITContent {
-            let contentVC = NITContentViewController(content: content)
-            contentVC.show()
-        } else if let feedback = content as? NITFeedback {
-            let feedbackVC = NITFeedbackViewController(feedback: feedback)
-            feedbackVC.show()
-        } else if let coupon = content as? NITCoupon {
-            let couponVC = NITCouponViewController(coupon: coupon)
-            couponVC.show()
-        }
     }
 }

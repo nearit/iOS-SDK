@@ -29,7 +29,17 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBAction func notificationHistory(_ sender: Any) {
+        let historyVC = NITNotificationHistoryViewController()
+        historyVC.show()
+    }
+    
+    @IBAction func couponHistory(_ sender: Any) {
+        let vc = NITCouponListViewController()
+        vc.show()
+    }
+    
     @IBAction func tapTryWhat(_ sender: UIButton) {
         let whatAction = UIAlertController(title: "Try \"What\"", message: "Choose the type of content you wish to try", preferredStyle: .actionSheet)
         whatAction.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
@@ -119,7 +129,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: NITPermissionsViewControllerDelegate {
     
     func dialogClosed(locationGranted: Bool, notificationsGranted: Bool) {
-        if locationGranted {
+        if (locationGranted && notificationsGranted) {
             NearManager.shared.start()
         }
     }
