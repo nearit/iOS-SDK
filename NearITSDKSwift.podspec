@@ -20,6 +20,6 @@ s.requires_arc          = true
 s.source_files          =  'NearITSDKSwift/*.{h,swift}'
 
 s.dependency            'NearITSDK', '= 2.10.6'
-s.swift_version         = 4.2
+s.swift_version         = '4.2'
 
 end
