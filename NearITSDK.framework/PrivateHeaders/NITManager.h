@@ -35,7 +35,7 @@
 
 @optional
 
-- (void)manager:(NITManager* _Nonnull)manager alertWantsToShowContent:(id _Nonnull)content;
+- (void)manager:(NITManager* _Nonnull)manager alertWantsToShowContent:(id _Nonnull)content trackingInfo:(NITTrackingInfo* _Nonnull)trackingInfo;
 
 @end
 

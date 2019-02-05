@@ -19,7 +19,7 @@ public enum NearRecipeTracking : String {
 public protocol NearManagerDelegate {
     func manager(_ manager: NearManager, eventWithContent content: Any, trackingInfo: NITTrackingInfo);
     func manager(_ manager: NearManager, eventFailureWithError error: Error);
-    func manager(_ manager: NearManager, alertWantsToShowContent content: Any);
+    func manager(_ manager: NearManager, alertWantsToShowContent content: Any, trackingInfo: NITTrackingInfo);
 }
 
 public final class NearManager: NSObject, NITManagerDelegate {
@@ -222,7 +222,7 @@ public final class NearManager: NSObject, NITManagerDelegate {
         delegate?.manager(self, eventWithContent: content, trackingInfo: trackingInfo)
     }
     
-    public func manager(_ manager: NITManager, alertWantsToShowContent content: Any) {
-        delegate?.manager(self, alertWantsToShowContent: content)
+    public func manager(_ manager: NITManager, alertWantsToShowContent content: Any, trackingInfo: NITTrackingInfo) {
+        delegate?.manager(self, alertWantsToShowContent: content, trackingInfo: trackingInfo)
     }
 }
