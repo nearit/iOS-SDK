@@ -18,5 +18,6 @@
 @property (nonatomic, readonly) NSDate* _Nonnull date;
 @property (nonatomic) NSTimeInterval timestamp;
 @property (nonatomic) BOOL read;
+@property (nonatomic) BOOL isNew;
 
 @end

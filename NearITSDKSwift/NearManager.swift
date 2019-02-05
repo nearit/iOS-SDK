@@ -22,10 +22,20 @@ public protocol NearManagerDelegate {
     func manager(_ manager: NearManager, alertWantsToShowContent content: Any);
 }
 
-public final class NearManager: NSObject, NITManagerDelegate {
-    
+public protocol NearManagerNotificationDelegate {
+    func manager(_ manager: NearManager, updatedHistoryWith items: [NITHistoryItem]?)
+}
+
+public final class NearManager: NSObject, NITManagerDelegate, NITNotificationUpdateDelegate {
     private var manager: NITManager!
     public var delegate: NearManagerDelegate?
+    
+    public var notificationDelegate: NearManagerNotificationDelegate? {
+        didSet {
+            // only add an instance as a notif delegate to avoid refresh on start ups
+            NearManager.shared.manager.notificationsDelegate = self
+        }
+    }
     
     @available(*, deprecated, message: "Use profileId(completionHandler)")
     public var profileId: String? {
@@ -224,5 +234,18 @@ public final class NearManager: NSObject, NITManagerDelegate {
     
     public func manager(_ manager: NITManager, alertWantsToShowContent content: Any) {
         delegate?.manager(self, alertWantsToShowContent: content)
+    }
+    
+    public func historyUpdated(with items: [NITHistoryItem]?) {
+        self.notificationDelegate?.manager(self, updatedHistoryWith: items)
+    }
+    
+    public func markNotficationHistoryAsOld {
+        manager.markNotificationHistoryAsOld()
+    }
+    
+    @available(iOS 10.0, *)
+    public func update(with notification: UNNotification) {
+        manager.update(with: notification)
     }
 }
