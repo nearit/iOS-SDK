@@ -240,7 +240,7 @@ public final class NearManager: NSObject, NITManagerDelegate, NITNotificationUpd
         self.notificationDelegate?.manager(self, updatedHistoryWith: items)
     }
     
-    public func markNotficationHistoryAsOld {
+    public func markNotficationHistoryAsOld() {
         manager.markNotificationHistoryAsOld()
     }
     
