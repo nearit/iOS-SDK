@@ -28,5 +28,6 @@ framework module NearITSDK {
         header "NITHistoryItem.h"
         header "NITNotificationHistoryManager.h"
         header "NITNetworkManaging.h"
+        header "NITNotificationUpdateDelegate.h"
     }
 }

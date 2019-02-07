@@ -10,19 +10,11 @@ import UIKit
 import Hex
 
 class NearButton: UIButton {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
     
     override func awakeFromNib() {
         backgroundColor = UIColor(hex:"#333333")
         layer.cornerRadius = 18
-        contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 10)
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
 
 }

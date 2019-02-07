@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "NITContentDelegate.h"
+#import "NITNotificationHistoryManager.h"
 #import <MessageUI/MessageUI.h>
+#import <UserNotifications/UserNotifications.h>
 
 @class NITRecipesManager;
 @class NITRecipe;
@@ -42,6 +44,7 @@
 @interface NITManager : NSObject
 
 @property (nonatomic, weak) id<NITManagerDelegate> _Nullable delegate;
+@property (nonatomic, weak) id<NITNotificationUpdateDelegate> _Nullable notificationDelegate;
 @property (nonatomic) BOOL showBackgroundNotification;
 @property (nonatomic) BOOL showForegroundNotification;
 
@@ -80,5 +83,7 @@ DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use triggerInAppEventWithKey");
 - (void)parseContent:(id _Nonnull)content trackingInfo:(NITTrackingInfo* _Nonnull)trackingInfo contentDelegate:(id<NITContentDelegate> _Nonnull)contentDelegate;
 - (BOOL)application:(UIApplication* _Nonnull)application openURL:(NSURL* _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id>* _Nullable)options;
 - (void)historyWithCompletion:(void(^_Nonnull)(NSArray<NITHistoryItem*>* _Nullable items, NSError* _Nullable error))completion;
+- (void)updateWithNotification:(UNNotification* _Nonnull)notification;
+- (void)markNotificationHistoryAsOld;
 
 @end

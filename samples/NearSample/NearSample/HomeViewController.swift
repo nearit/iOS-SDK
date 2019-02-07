@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NearManager.shared.notificationDelegate = self
         // Do any additional setup after loading the view.
         title = "Home"
         
@@ -132,5 +133,12 @@ extension HomeViewController: NITPermissionsViewControllerDelegate {
         if (locationGranted && notificationsGranted) {
             NearManager.shared.start()
         }
+    }
+}
+
+extension HomeViewController: NearManagerNotificationDelegate {
+    func manager(_ manager: NearManager, updatedHistoryWith items: [NITHistoryItem]?) {
+        let count = items?.filter { $0.isNew }.count
+        self.tabBarController?.tabBar.items?[0].badgeValue = String(count ?? 0)
     }
 }
