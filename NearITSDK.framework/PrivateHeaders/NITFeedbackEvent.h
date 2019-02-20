@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSString * _Nonnull ID;
 @property (nonatomic, strong) NSString * _Nonnull recipeId;
 
-- (instancetype _Nonnull)initWithFeedback:(NITFeedback* _Nonnull)feedback rating:(NSInteger)rating comment:(NSString* _Nonnull)comment;
+- (instancetype _Nonnull)initWithFeedback:(NITFeedback* _Nonnull)feedback rating:(NSInteger)rating comment:(NSString* _Nullable)comment;
 - (NITJSONAPI* _Nullable)toJsonAPI:(NITConfiguration* _Nonnull)configuration;
 
 @end
