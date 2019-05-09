@@ -1,29 +1,25 @@
 PODS:
-  - Hex (6.0.0)
-  - NearITSDK (2.10.4)
-  - NearITSDKSwift (2.10.4):
-    - NearITSDK (= 2.10.4)
-  - NearUIBinding (2.10.6):
-    - NearITSDK (~> 2.10.3)
+  - NearITSDK (2.11.2)
+  - NearITSDKSwift (2.11.2):
+    - NearITSDK (= 2.11.2)
+  - NearUIBinding (2.11.6):
+    - NearITSDK (~> 2.11.2)
 
 DEPENDENCIES:
-  - Hex
   - NearITSDKSwift
   - NearUIBinding
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Hex
     - NearITSDK
     - NearITSDKSwift
     - NearUIBinding
 
 SPEC CHECKSUMS:
-  Hex: 3888e06c29fe725b12e33d434e31b06beb4112db
-  NearITSDK: f0f2329c0d5104c9691f6b4f53e0e956913b9c9e
-  NearITSDKSwift: 80891431f24a26d92a4c139cd7abb26708dad775
-  NearUIBinding: 50d5c9dc008b72c6f973474bbfae1dc5b0ffdc8e
+  NearITSDK: 2b8e2cd7fc57bbd2d9ccbeab3505c2fb7a6b21b9
+  NearITSDKSwift: 0a4432a9a2189c8743e2547c0a1d68f7f58ea4e9
+  NearUIBinding: 9e944c25c513689b3c43648a0a2efb8e9d7584c6
 
-PODFILE CHECKSUM: a482ea61a9d4f309134e51edca5a3abed3dead30
+PODFILE CHECKSUM: f8de3a8491608fd9519554e90f41108e356e855e
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0

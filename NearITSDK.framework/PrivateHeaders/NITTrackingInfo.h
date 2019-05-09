@@ -21,6 +21,6 @@
 
 + (NITTrackingInfo* _Nonnull)trackingInfoFromRecipeId:(NSString* _Nonnull)recipeId;
 + (NITTrackingInfo* _Nonnull)trackingInfoFromRecipeId:(NSString* _Nonnull)recipeId deliveryId:(NSString* _Nullable)deliveryId;
-+ (NITTrackingInfo* _Nonnull)trackingInfoFromRecipeId:(NSString* _Nonnull)recipeId extras:(NSDictionary<NSString*, id> *)extras;
++ (NITTrackingInfo* _Nonnull)trackingInfoFromRecipeId:(NSString* _Nonnull)recipeId extras:(NSDictionary<NSString*, id> *_Nonnull)extras;
 
 @end

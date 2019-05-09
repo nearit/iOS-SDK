@@ -48,40 +48,57 @@
 @property (nonatomic) BOOL showBackgroundNotification;
 @property (nonatomic) BOOL showForegroundNotification;
 
+// Setup
 + (void)setupWithApiKey:(NSString* _Nonnull)apiKey;
 + (NITManager* _Nonnull)defaultManager;
 + (void)setFrameworkName:(NSString* _Nonnull)frameworkName;
-
-- (void)start;
-- (void)stop;
-- (void)refreshConfigWithCompletionHandler:(void (^_Nullable)(NSError * _Nullable error))completionHandler DEPRECATED_ATTRIBUTE;
+- (BOOL)application:(UIApplication* _Nonnull)application openURL:(NSURL* _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id>* _Nullable)options;
+- (void)application:(UIApplication* _Nonnull)application performFetchWithCompletionHandler:(void (^_Nonnull)(UIBackgroundFetchResult))completionHandler;
 - (void)setDeviceTokenWithData:(NSData* _Nonnull)token;
-- (BOOL)processRecipeSimpleWithUserInfo:(NSDictionary<NSString*, id> * _Nullable)userInfo;
-- (void)sendTrackingWithTrackingInfo:(NITTrackingInfo * _Nullable)trackingInfo event:(NSString* _Nullable)event;
-- (void)setUserDataWithKey:(NSString* _Nonnull)key value:(NSString* _Nullable)value completionHandler:(void (^_Nullable)(NSError* _Nullable error))handler DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use setUserData(\"MY_KEY\", value:\"MY_VALUE\")");
-- (void)setBatchUserDataWithDictionary:(NSDictionary<NSString*, id>* _Nonnull)valuesDictiornary completionHandler:(void (^_Nullable)(NSError* _Nullable error))handler DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use setUserData(\"MY_KEY\", value:\"MY_VALUE\")");
-- (void)setDeferredUserDataWithKey:(NSString * _Nonnull)key value:(NSString * _Nullable)value
-DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use setUserDataWithKey(\"MY_KEY\", value:\"MY_VALUE\")");
+
+// Profile
 - (void)setUserDataWithKey:(NSString* _Nonnull)key value:(NSString* _Nullable)value;
 - (void)setUserDataWithKey:(NSString* _Nonnull)key multiValue:(NSDictionary<NSString*, NSNumber*>* _Nullable)value;
-- (void)sendEventWithEvent:(NITEvent* _Nonnull)event completionHandler:(void (^_Nullable)(NSError* _Nullable error))handler;
+- (void)setProfileId:(NSString * _Nonnull)profileId;
+- (void)profileIdWithCompletionHandler:(void (^_Nonnull)(NSString* _Nullable profileId, NSError* _Nullable error))handler;
+- (void)resetProfileWithCompletionHandler:(void (^_Nonnull)(NSString* _Nullable profileId, NSError* _Nullable error))handler;
+- (void)optOutWithCompletionHandler:(void (^_Nonnull)(BOOL success))handler;
+- (void)resetProfile DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use resetProfileWithCompletionHandler");
+- (void)setDeferredUserDataWithKey:(NSString * _Nonnull)key value:(NSString * _Nullable)value
+DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use setUserDataWithKey(\"MY_KEY\", value:\"MY_VALUE\")");
+- (void)setUserDataWithKey:(NSString* _Nonnull)key value:(NSString* _Nullable)value completionHandler:(void (^_Nullable)(NSError* _Nullable error))handler DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use setUserData(\"MY_KEY\", value:\"MY_VALUE\")");
+- (void)setBatchUserDataWithDictionary:(NSDictionary<NSString*, id>* _Nonnull)valuesDictiornary completionHandler:(void (^_Nullable)(NSError* _Nullable error))handler DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use setUserData(\"MY_KEY\", value:\"MY_VALUE\")");
+- (NSString* _Nullable)profileId DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use profileIdWithCompletionHandler");
+
+// Radar
+- (void)start;
+- (void)stop;
+
+// Content
+- (void)userNotificationCenter:(UNUserNotificationCenter* _Nonnull)center willPresent:(UNNotification* _Nonnull)notification withCompletionHandler:(void (^_Nonnull)(UNNotificationPresentationOptions options))handler;
+- (BOOL)getContentFrom:(UNNotificationResponse* _Nonnull)response completion:(void (^_Nullable)(NITReactionBundle* _Nullable object, NITTrackingInfo * _Nullable trackingInfo, NSError* _Nullable error))completionHandler;
+- (BOOL)processRecipeWithResponse:(UNNotificationResponse* _Nonnull)response completion:(void (^_Nullable)(NITReactionBundle* _Nullable object, NITTrackingInfo * _Nullable trackingInfo, NSError* _Nullable error))completionHandler
+DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use getContentFrom");
 - (void)couponsWithCompletionHandler:(void (^ _Nullable)(NSArray<NITCoupon*>* _Nullable, NSError* _Nullable))handler;
+
+// Manual configuration
+- (BOOL)processRecipeSimpleWithUserInfo:(NSDictionary<NSString*, id> * _Nullable)userInfo;
 - (void)recipesWithCompletionHandler:(void (^_Nullable)(NSArray<NITRecipe*>* _Nullable recipes, NSError * _Nullable error))completionHandler;
 - (void)processRecipeWithId:(NSString* _Nonnull)recipeId;
 - (BOOL)processRecipeWithUserInfo:(NSDictionary<NSString *,id> * _Nonnull)userInfo completion:(void (^_Nullable)(NITReactionBundle* _Nullable object, NITTrackingInfo * _Nullable trackingInfo, NSError* _Nullable error))completionHandler;
-- (BOOL)processRecipeWithResponse:(UNNotificationResponse*)response completion:(void (^_Nullable)(NITReactionBundle* _Nullable object, NITTrackingInfo * _Nullable trackingInfo, NSError* _Nullable error))completionHandler;
-- (void)resetProfile DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use resetProfileWithCompletionHandler");
-- (void)resetProfileWithCompletionHandler:(void (^_Nonnull)(NSString* _Nullable profileId, NSError* _Nullable error))handler;
-- (NSString* _Nullable)profileId DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use profileIdWithCompletionHandler");
-- (void)profileIdWithCompletionHandler:(void (^_Nonnull)(NSString* _Nullable profileId, NSError* _Nullable error))handler;
-- (void)setProfileId:(NSString * _Nonnull)profileId;
-- (void)optOutWithCompletionHandler:(void (^_Nonnull)(BOOL success))handler;
+- (void)refreshConfigWithCompletionHandler:(void (^_Nullable)(NSError * _Nullable error))completionHandler DEPRECATED_ATTRIBUTE;
+- (void)sendTrackingWithTrackingInfo:(NITTrackingInfo * _Nullable)trackingInfo event:(NSString* _Nullable)event;
+- (void)sendEventWithEvent:(NITEvent* _Nonnull)event completionHandler:(void (^_Nullable)(NSError* _Nullable error))handler;
+
+// Custom trigger
 - (void)processCustomTriggerWithKey:(NSString* _Nonnull)key
 DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use triggerInAppEventWithKey");
 - (void)triggerInAppEventWithKey:(NSString* _Nonnull)key;
-- (void)application:(UIApplication* _Nonnull)application performFetchWithCompletionHandler:(void (^_Nonnull)(UIBackgroundFetchResult))completionHandler;
+
+// Util
 - (void)parseContent:(id _Nonnull)content trackingInfo:(NITTrackingInfo* _Nonnull)trackingInfo contentDelegate:(id<NITContentDelegate> _Nonnull)contentDelegate;
-- (BOOL)application:(UIApplication* _Nonnull)application openURL:(NSURL* _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id>* _Nullable)options;
+
+// Notification History
 - (void)historyWithCompletion:(void(^_Nonnull)(NSArray<NITHistoryItem*>* _Nullable items, NSError* _Nullable error))completion;
 - (void)updateWithNotification:(UNNotification* _Nonnull)notification;
 - (void)markNotificationHistoryAsOld;

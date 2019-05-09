@@ -9,7 +9,4 @@ target 'NearSample' do
   pod 'NearITSDKSwift'
   pod 'NearUIBinding'
 
-# Utility pod
-pod 'Hex'
-
 end

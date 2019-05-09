@@ -74,16 +74,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler(.alert)
-        NearManager.shared.update(with: notification)
+        NearManager.shared.userNotificationCenter(center, willPresent: notification, withCompletionHandler: completionHandler)
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let isNearNotification = NearManager.shared.processRecipeFrom(response) { (content, trackingInfo, error) in
-            if let content = content, let trackingInfo = trackingInfo {
-                self.handleNearContent(content, trackingInfo: trackingInfo)
+        let isNearNotification = NearUIBinding.showContentFrom(response) { (content, trackingInfo, error) in
+            if error != nil {
+                // there was an error
+            }
+            
+            if let customJson = content as? NITCustomJSON {
+                // handle custom json
             }
         }
+        
         completionHandler()
     }
 }

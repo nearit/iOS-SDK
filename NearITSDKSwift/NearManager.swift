@@ -96,9 +96,21 @@ public final class NearManager: NSObject, NITManagerDelegate, NITNotificationUpd
     }
     
     @available(iOS 10.0, *)
-    public func processRecipeFrom(_ response: UNNotificationResponse, completion: ((NITReactionBundle?, NITTrackingInfo?, Error?) -> Void)?) -> Bool {
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        manager.userNotificationCenter(center, willPresent: notification) { (options) in
+            completionHandler(options)
+        }
+    }
+    
+    @available(iOS 10.0, *)
+    public func getContentFrom(_ response: UNNotificationResponse, completion: ((NITReactionBundle?, NITTrackingInfo?, Error?) -> Void)?) -> Bool {
         let userInfo = response.notification.request.content.userInfo
         return self.processRecipe(userInfo, completion: completion)
+    }
+    
+    @available(iOS, introduced: 10.0, deprecated, message: "use getContent instead")
+    public func processRecipeFrom(_ response: UNNotificationResponse, completion: ((NITReactionBundle?, NITTrackingInfo?, Error?) -> Void)?) -> Bool {
+        return getContentFrom(response, completion: completion)
     }
     
     public func processRecipe(_ userInfo: [AnyHashable : Any], completion: ((NITReactionBundle?, NITTrackingInfo?, Error?) -> Void)?) -> Bool {
