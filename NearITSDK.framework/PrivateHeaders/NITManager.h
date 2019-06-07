@@ -60,6 +60,7 @@
 - (void)setUserDataWithKey:(NSString* _Nonnull)key value:(NSString* _Nullable)value;
 - (void)setUserDataWithKey:(NSString* _Nonnull)key multiValue:(NSDictionary<NSString*, NSNumber*>* _Nullable)value;
 - (void)setProfileId:(NSString * _Nonnull)profileId;
+- (void)getUserDataWithCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString*, id>* _Nullable userData, NSError* _Nullable error))handler;
 - (void)profileIdWithCompletionHandler:(void (^_Nonnull)(NSString* _Nullable profileId, NSError* _Nullable error))handler;
 - (void)resetProfileWithCompletionHandler:(void (^_Nonnull)(NSString* _Nullable profileId, NSError* _Nullable error))handler;
 - (void)optOutWithCompletionHandler:(void (^_Nonnull)(BOOL success))handler;

@@ -127,38 +127,43 @@ public final class NearManager: NSObject, NITManagerDelegate, NITNotificationUpd
     public func sendTracking(_ trackingInfo: NITTrackingInfo?, event: String?) {
         manager.sendTracking(with: trackingInfo, event: event)
     }
-  
+    
     @available(*, deprecated, message: "use setUserData(\"MY_KEY\", value:\"MY_VALUE\")")
     public func setUserData(_ key: String, value: String?, completionHandler: ((Error?) -> Void)?) {
         manager.setUserDataWithKey(key, value: value, completionHandler: completionHandler)
     }
-  
-  @available(*, deprecated, message: "use setUserData(\"MY_KEY\", value:\"MY_VALUE\")")
+    
+    @available(*, deprecated, message: "use setUserData(\"MY_KEY\", value:\"MY_VALUE\")")
     public func setBatchUserData(_ valuesDictionary : [String : Any], completionHandler: ((Error?) -> Void)?) {
         manager.setBatchUserDataWith(valuesDictionary, completionHandler: completionHandler)
     }
-  
-  @available(*, deprecated, message: "use setUserData(\"MY_KEY\", value:\"MY_VALUE\")")
+    
+    @available(*, deprecated, message: "use setUserData(\"MY_KEY\", value:\"MY_VALUE\")")
     public func setDeferredUserData(_ key: String, value: String?) {
         self.setUserData(key, value: value)
     }
     
-  public func setUserData(_ key: String, value: String?) {
-    manager.setUserDataWithKey(key, value: value)
-  }
-  
-  public func setUserData(_ key: String, multiValue: [String : Bool]?) {
-    if let multiValue = multiValue {
-      var numberMultiValue = [String: NSNumber]()
-      multiValue.forEach { (arg: (key: String, value: Bool)) in
-        let (key, value) = arg
-        numberMultiValue[key] = NSNumber.init(booleanLiteral: value)
-      }
-      manager.setUserDataWithKey(key, multiValue: numberMultiValue)
-    } else {
-      manager.setUserDataWithKey(key, multiValue: nil)
+    public func setUserData(_ key: String, value: String?) {
+        manager.setUserDataWithKey(key, value: value)
     }
-  }
+  
+    public func setUserData(_ key: String, multiValue: [String : Bool]?) {
+        if let multiValue = multiValue {
+            var numberMultiValue = [String: NSNumber]()
+            multiValue.forEach { (arg: (key: String, value: Bool)) in
+                let (key, value) = arg
+                numberMultiValue[key] = NSNumber.init(booleanLiteral: value)
+            }
+            manager.setUserDataWithKey(key, multiValue: numberMultiValue)
+        } else {
+            manager.setUserDataWithKey(key, multiValue: nil)
+        }
+    }
+    
+    public func getUserData(_ completionHandler: (([String: Any]?, Error?) -> Void)?) {
+        guard let handler = completionHandler else { return }
+        manager.getUserData(completionHandler: handler)
+    }
     
     public func sendEvent(_ event: NITEvent, completionHandler: ((Error?) -> Void)?) {
         manager.sendEvent(with: event, completionHandler: completionHandler)
