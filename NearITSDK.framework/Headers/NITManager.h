@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "NITContentDelegate.h"
-#import "NITNotificationHistoryManager.h"
 #import <MessageUI/MessageUI.h>
 #import <UserNotifications/UserNotifications.h>
 
@@ -23,6 +22,7 @@
 @class NITTrackingInfo;
 @class NITReactionBundle;
 @class NITHistoryItem;
+@protocol NITNotificationUpdateDelegate;
 
 @protocol NITManaging <NSObject>
 

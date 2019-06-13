@@ -8,25 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
-#import <NearITSDK/NITManager.h>
-#import <NearITSDK/NITContent.h>
-#import <NearITSDK/NITImage.h>
-#import <NearITSDK/NITResource.h>
-#import <NearITSDK/NITRecipe.h>
-#import <NearITSDK/NITCoupon.h>
-#import <NearITSDK/NITClaim.h>
-#import <NearITSDK/NITFeedback.h>
-#import <NearITSDK/NITFeedbackEvent.h>
-#import <NearITSDK/NITCustomJSON.h>
-#import <NearITSDK/NITSimpleNotification.h>
-#import <NearITSDK/NITEvent.h>
-#import <NearITSDK/NITAudio.h>
-#import <NearITSDK/NITUpload.h>
-#import <NearITSDK/NITLogger.h>
-#import <NearITSDK/NITLog.h>
-#import <NearITSDK/NITReactionBundle.h>
-#import <NearITSDK/NITContentLink.h>
-#import <NearITSDK/NITNotificationUpdateDelegate.h>
+#import "NITManager.h"
+#import "NITContent.h"
+#import "NITImage.h"
+#import "NITResource.h"
+#import "NITRecipe.h"
+#import "NITCoupon.h"
+#import "NITClaim.h"
+#import "NITFeedback.h"
+#import "NITFeedbackEvent.h"
+#import "NITCustomJSON.h"
+#import "NITSimpleNotification.h"
+#import "NITTrackingInfo.h"
+#import "NITEvent.h"
+#import "NITAudio.h"
+#import "NITUpload.h"
+#import "NITLogger.h"
+#import "NITLog.h"
+#import "NITReactionBundle.h"
+#import "NITContentLink.h"
+#import "NITNotificationUpdateDelegate.h"
+#import "NITHistoryItem.h"
 
 //! Project version number for NearITSDK.
 FOUNDATION_EXPORT double NearITSDKVersionNumber;
