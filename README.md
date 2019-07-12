@@ -2,6 +2,7 @@
 
 NearIT allows to engage app users by sending **context-aware targeted content**.
 
+[![CocoaPods](https://img.shields.io/cocoapods/v/NearITSDKSwift.svg)](https://cocoapods.org/pods/NearITSDKSwift)
 [![Documentation Status](https://img.shields.io/badge/docs-visit-brightgreen.svg)](https://docs.nearit.com/ios/installation/)
 
 ## Recipes
