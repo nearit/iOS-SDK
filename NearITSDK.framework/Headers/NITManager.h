@@ -78,6 +78,7 @@ DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use setUserDataWithKey(\"MY_KEY\"
 // Content
 - (void)userNotificationCenter:(UNUserNotificationCenter* _Nonnull)center willPresent:(UNNotification* _Nonnull)notification withCompletionHandler:(void (^_Nonnull)(UNNotificationPresentationOptions options))handler;
 - (BOOL)getContentFrom:(UNNotificationResponse* _Nonnull)response completion:(void (^_Nullable)(NITReactionBundle* _Nullable object, NITTrackingInfo * _Nullable trackingInfo, NSError* _Nullable error))completionHandler;
+- (BOOL)getContentFromUserInfo:(NSDictionary* _Nonnull)userInfo completion:(void (^_Nullable)(NITReactionBundle* _Nullable object, NITTrackingInfo* _Nullable trackingInfo, NSError* _Nullable error))completionHandler;
 - (BOOL)processRecipeWithResponse:(UNNotificationResponse* _Nonnull)response completion:(void (^_Nullable)(NITReactionBundle* _Nullable object, NITTrackingInfo * _Nullable trackingInfo, NSError* _Nullable error))completionHandler
 DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use getContentFrom");
 - (void)couponsWithCompletionHandler:(void (^ _Nullable)(NSArray<NITCoupon*>* _Nullable, NSError* _Nullable))handler;
@@ -86,7 +87,7 @@ DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use getContentFrom");
 - (BOOL)processRecipeSimpleWithUserInfo:(NSDictionary<NSString*, id> * _Nullable)userInfo;
 - (void)recipesWithCompletionHandler:(void (^_Nullable)(NSArray<NITRecipe*>* _Nullable recipes, NSError * _Nullable error))completionHandler;
 - (void)processRecipeWithId:(NSString* _Nonnull)recipeId;
-- (BOOL)processRecipeWithUserInfo:(NSDictionary<NSString *,id> * _Nonnull)userInfo completion:(void (^_Nullable)(NITReactionBundle* _Nullable object, NITTrackingInfo * _Nullable trackingInfo, NSError* _Nullable error))completionHandler;
+- (BOOL)processRecipeWithUserInfo:(NSDictionary<NSString *,id> * _Nonnull)userInfo completion:(void (^_Nullable)(NITReactionBundle* _Nullable object, NITTrackingInfo * _Nullable trackingInfo, NSError* _Nullable error))completionHandler DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use getContentFrom");
 - (void)refreshConfigWithCompletionHandler:(void (^_Nullable)(NSError * _Nullable error))completionHandler DEPRECATED_ATTRIBUTE;
 - (void)sendTrackingWithTrackingInfo:(NITTrackingInfo * _Nullable)trackingInfo event:(NSString* _Nullable)event;
 - (void)sendEventWithEvent:(NITEvent* _Nonnull)event completionHandler:(void (^_Nullable)(NSError* _Nullable error))handler;

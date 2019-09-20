@@ -37,7 +37,7 @@ public final class NearManager: NSObject, NITManagerDelegate, NITNotificationUpd
         }
     }
     
-    @available(*, deprecated, message: "Use profileId(completionHandler)")
+    @available(*, deprecated, message: "Use profileId(completionHandler) instead.")
     public var profileId: String? {
         get {
             return manager.profileId()
@@ -83,7 +83,7 @@ public final class NearManager: NSObject, NITManagerDelegate, NITNotificationUpd
         manager.setDeviceTokenWith(token)
     }
     
-    @available(*, deprecated, message: "use background fetch feature for optimized data refresh")
+    @available(*, deprecated, message: "Use background fetch feature for optimized data refresh.")
     public func refreshConfig(completionHandler: ((Error?) -> Void)?) {
         manager.refreshConfig(completionHandler: completionHandler)
     }
@@ -105,17 +105,12 @@ public final class NearManager: NSObject, NITManagerDelegate, NITNotificationUpd
     @available(iOS 10.0, *)
     public func getContentFrom(_ response: UNNotificationResponse, completion: ((NITReactionBundle?, NITTrackingInfo?, Error?) -> Void)?) -> Bool {
         let userInfo = response.notification.request.content.userInfo
-        return self.processRecipe(userInfo, completion: completion)
+        return self.getContentFrom(userInfo: userInfo, completion: completion)
     }
     
-    @available(iOS, introduced: 10.0, deprecated, message: "use getContent instead")
-    public func processRecipeFrom(_ response: UNNotificationResponse, completion: ((NITReactionBundle?, NITTrackingInfo?, Error?) -> Void)?) -> Bool {
-        return getContentFrom(response, completion: completion)
-    }
-    
-    public func processRecipe(_ userInfo: [AnyHashable : Any], completion: ((NITReactionBundle?, NITTrackingInfo?, Error?) -> Void)?) -> Bool {
-        if let ui = userInfo as? [String : Any] {
-            return manager.processRecipe(userInfo: ui, completion: { (content, trackingInfo, error) in
+    public func getContentFrom(userInfo: [AnyHashable: Any], completion: ((NITReactionBundle?, NITTrackingInfo?, Error?) -> Void)?) -> Bool {
+        if let _ = userInfo as? [String : Any] {
+            return manager.getContentFromUserInfo(userInfo, completion: { (content, trackingInfo, error) in
                 if completion != nil {
                     completion!(content, trackingInfo, error)
                 }
@@ -124,21 +119,31 @@ public final class NearManager: NSObject, NITManagerDelegate, NITNotificationUpd
         return false
     }
     
+    @available(iOS, introduced: 10.0, deprecated, renamed: "getContent")
+    public func processRecipeFrom(_ response: UNNotificationResponse, completion: ((NITReactionBundle?, NITTrackingInfo?, Error?) -> Void)?) -> Bool {
+        return getContentFrom(response, completion: completion)
+    }
+    
+    @available(*, deprecated, renamed: "getContent")
+    public func processRecipe(_ userInfo: [AnyHashable : Any], completion: ((NITReactionBundle?, NITTrackingInfo?, Error?) -> Void)?) -> Bool {
+        return self.getContentFrom(userInfo: userInfo, completion: completion)
+    }
+    
     public func sendTracking(_ trackingInfo: NITTrackingInfo?, event: String?) {
         manager.sendTracking(with: trackingInfo, event: event)
     }
     
-    @available(*, deprecated, message: "use setUserData(\"MY_KEY\", value:\"MY_VALUE\")")
+    @available(*, deprecated, message: "Use setUserData(key:value:) instead.")
     public func setUserData(_ key: String, value: String?, completionHandler: ((Error?) -> Void)?) {
         manager.setUserDataWithKey(key, value: value, completionHandler: completionHandler)
     }
     
-    @available(*, deprecated, message: "use setUserData(\"MY_KEY\", value:\"MY_VALUE\")")
+    @available(*, deprecated, message: "use setUserData(\"MY_KEY\", value:\"MY_VALUE\") for each value")
     public func setBatchUserData(_ valuesDictionary : [String : Any], completionHandler: ((Error?) -> Void)?) {
         manager.setBatchUserDataWith(valuesDictionary, completionHandler: completionHandler)
     }
     
-    @available(*, deprecated, message: "use setUserData(\"MY_KEY\", value:\"MY_VALUE\")")
+    @available(*, deprecated, renamed: "setUserData(key:value:)")
     public func setDeferredUserData(_ key: String, value: String?) {
         self.setUserData(key, value: value)
     }
@@ -173,7 +178,7 @@ public final class NearManager: NSObject, NITManagerDelegate, NITNotificationUpd
         manager.coupons(completionHandler: completionHandler)
     }
     
-    @available(*, deprecated, message: "Use resetProfile(completionHandler)")
+    @available(*, deprecated, message: "Use resetProfile(completionHandler:) instead.")
     public func resetProfile() {
         manager.resetProfile()
     }
@@ -212,7 +217,7 @@ public final class NearManager: NSObject, NITManagerDelegate, NITNotificationUpd
         }
     }
     
-    @available(*, deprecated, message: "Use triggerInAppEvent(key)")
+    @available(*, deprecated, renamed: "triggerInAppEvent(key:)")
     public func processCustomTrigger(_ key: String) {
         self.triggerInAppEvent(key)
     }
