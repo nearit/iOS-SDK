@@ -15,12 +15,9 @@ import NearUIBinding
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-        let apiKey = "your-api-key"
+        let apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwcGVHSGthM0U2dExWT0pSNzFJNUJQSXJCbVc0YXN1ZVQtcGFxRlBhTnQ0PSIsImlhdCI6MTUxNzM5NjMwOSwiZXhwIjoxODMyOTc1OTk5LCJkYXRhIjp7ImFjY291bnQiOnsiaWQiOiJkNjQzZmMzNi0xMzQ1LTRkZjQtOWVkYy0xYzFhZmJlZTczMTYiLCJyb2xlX2tleSI6ImFwcCJ9fX0.5Br6s69VA7PtONNYG3YoYKsRp9JcPujyTPvoQKR-sD0"
         NearManager.setup(apiKey: apiKey)
         
         // enable NearIT logs
@@ -45,29 +42,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        // setup test device
         return NearManager.shared.application(app, open: url, options: options)
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // send push token to NearIT servers
         NearManager.shared.setDeviceToken(deviceToken)
     }
     
-    func handleNearContent(_ content: Any, trackingInfo: NITTrackingInfo? = nil) {
-        if let content = content as? NITContent {
-            let contentVC = NITContentViewController(content: content)
-            contentVC.show()
-        } else if let feedback = content as? NITFeedback {
-            let feedbackVC = NITFeedbackViewController(feedback: feedback)
-            feedbackVC.show()
-        } else if let coupon = content as? NITCoupon {
-            let couponVC = NITCouponViewController(coupon: coupon)
-            couponVC.show()
-        } else if let simple = content as? NITSimpleNotification {
-            // there's no content attached to the system notification that was just pressed
-        } else if let customJson = content as? NITCustomJSON {
-            // handle your custom json
-        }
-    }
     
 }
 
@@ -78,16 +61,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let isNearNotification = NearUIBinding.showContentFrom(response) { (content, trackingInfo, error) in
-            if error != nil {
+        let isNearNotification = NearManager.shared.showContentFrom(response) { (content, trackingInfo, error) in
+            if let error = error {
                 // there was an error
             }
-            
-            if let customJson = content as? NITCustomJSON {
-                // handle custom json
-            }
         }
-        
         completionHandler()
     }
 }

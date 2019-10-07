@@ -1,25 +1,25 @@
 PODS:
-  - NearITSDK (2.11.2)
-  - NearITSDKSwift (2.11.2):
-    - NearITSDK (= 2.11.2)
-  - NearUIBinding (2.11.6):
-    - NearITSDK (~> 2.11.2)
+  - NearITSDK (2.12.4)
+  - NearITSDKSwift (2.12.4):
+    - NearITSDK (= 2.12.4)
+  - NearUIBinding (2.12.2):
+    - NearITSDKSwift (~> 2.12.2)
 
 DEPENDENCIES:
   - NearITSDKSwift
   - NearUIBinding
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - NearITSDK
     - NearITSDKSwift
     - NearUIBinding
 
 SPEC CHECKSUMS:
-  NearITSDK: 2b8e2cd7fc57bbd2d9ccbeab3505c2fb7a6b21b9
-  NearITSDKSwift: 0a4432a9a2189c8743e2547c0a1d68f7f58ea4e9
-  NearUIBinding: 9e944c25c513689b3c43648a0a2efb8e9d7584c6
+  NearITSDK: 0b959f0d02328409ebf0b2727ab80105f3ef3a74
+  NearITSDKSwift: f060cd70606da758c942361cd636153b128b3a54
+  NearUIBinding: 2a72a81d9077695f51843ff87cafd4c1d4944d87
 
 PODFILE CHECKSUM: f8de3a8491608fd9519554e90f41108e356e855e
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.8.1
