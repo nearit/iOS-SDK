@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let apiKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJwcGVHSGthM0U2dExWT0pSNzFJNUJQSXJCbVc0YXN1ZVQtcGFxRlBhTnQ0PSIsImlhdCI6MTUxNzM5NjMwOSwiZXhwIjoxODMyOTc1OTk5LCJkYXRhIjp7ImFjY291bnQiOnsiaWQiOiJkNjQzZmMzNi0xMzQ1LTRkZjQtOWVkYy0xYzFhZmJlZTczMTYiLCJyb2xlX2tleSI6ImFwcCJ9fX0.5Br6s69VA7PtONNYG3YoYKsRp9JcPujyTPvoQKR-sD0"
+        let apiKey = "my-api-key"
         NearManager.setup(apiKey: apiKey)
         
         // enable NearIT logs
